@@ -1,0 +1,31 @@
+// Inventory Stock Alert System
+#include <iostream>
+#include <string>
+
+// A reusable function to check item status
+void checkStock(std::string itemName, int currentStock) {
+    int criticalLevel = 5; // Alert if stock drops below 5 items
+
+    std::cout << "Item: " << itemName << " | Current Stock: " << currentStock;
+    
+    if (currentStock == 0) {
+        std::cout << " ->  ALERT: OUT OF STOCK! Reorder immediately.";
+    } else if (currentStock <= criticalLevel) {
+        std::cout << " ->  WARNING: Low Stock. Consider reordering.";
+    } else {
+        std::cout << " -> Stable Status.";
+    }
+    std::cout << std::endl;
+}
+
+int main() {
+    std::cout << "--- Warehouse Stock Monitor ---" << std::endl;
+
+    // Simulating checking different store products
+    checkStock("Wireless Mouse", 12);
+    checkStock("USB-C Cables", 3);
+    checkStock("Mechanical Keyboards", 0);
+    checkStock("Gaming Monitors", 6);
+
+    return 0;
+}
